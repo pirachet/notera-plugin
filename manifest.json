@@ -1,7 +1,7 @@
 {
   "id": "notera",
   "name": "Notera",
-  "version": "0.60.0",
+  "version": "0.60.2",
   "minAppVersion": "1.5.0",
   "description": "Minimal Notera plugin (MVP).",
   "author": "TrendHD",
