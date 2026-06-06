@@ -2119,3 +2119,14 @@ img.notera-search-result-thumb,
 	opacity: 0;
     cursor: default; 
 }
+
+.notera-has-banner .notera-status-inline {
+	position: absolute;
+    color: var(--text-muted);
+	top: calc(-1 * var(--notera-banner-padding) + var(--size-2-2));
+    font-size: var(--font-ui-small);
+    background-color: color-mix(in srgb, var(--file-header-background-focused) var(--blur-opacity-s), transparent);
+    backdrop-filter: var(--blur-m);
+    padding: var(--size-2-2) var(--size-4-2);
+	border-radius: var(--radius-m);
+}
