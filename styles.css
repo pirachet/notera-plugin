@@ -860,18 +860,6 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 	font-size: var(--font-ui-small);
 }
 
-.notera-indicators-inline {
-	flex-direction: column;
-	align-items: flex-start;
-	padding: var(--size-4-2) 0;
-}
-
-.notera-status-row {
-	display: flex;
-	align-items: center;
-	gap: var(--size-4-2);
-}
-
 .notera-callout-faq {
 	color: rgba(var(--callout-color));
 	margin-top: var(--size-4-2);
