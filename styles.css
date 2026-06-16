@@ -1,4 +1,4 @@
-:root {
+﻿:root, .theme-dark, .theme-light {
 	--notera: #e53323;
 	--amber: #fa9f50;
 	--mint: #52eea3;
@@ -844,7 +844,7 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 	align-items: center;
 }
 
-.is-mobile .notera-settings .notera-indicators .setting-item {
+.is-mobile .modal-content .notera-indicators .setting-item {
     flex-direction: unset;
 	align-items: center;
 }
@@ -1626,6 +1626,10 @@ img.notera-search-result-thumb,
 	margin-inline-end: 0;
 }
 
+.notera-restore-item {
+	cursor: pointer;
+}
+
 .setting-item:has(.notera-lock-icon) .setting-item-info, 
 .setting-item:has(.notera-lock-icon) .setting-item-control {
     opacity: 0.5;
@@ -1642,6 +1646,7 @@ img.notera-search-result-thumb,
 	margin: calc(var(--size-2-1) * -1) 0 0 var(--size-4-1);
 	--icon-size: calc(var(--icon-m) + 2px);
 	transition: var(--trans-normal);
+	cursor: help;
 }
 
 .notera-help-icon:hover {
@@ -1762,7 +1767,7 @@ img.notera-search-result-thumb,
 	padding-top: calc(var(--notera-banner-padding) + var(--panel-h, 0px));
 }
 
-.notera-panel-home-btn, .notera-panel-transfer-btn {
+.notera-panel-home-btn, .notera-panel-action-btn {
     --icon-size: calc(var(--icon-l) + 2px);
 	opacity: 0.7;
 	cursor: pointer;
@@ -1779,13 +1784,13 @@ img.notera-search-result-thumb,
 	pointer-events: none;
 }
 
-.notera-panel-transfer-btn {
+.notera-panel-action-btn {
 	position: absolute;
 	right: var(--size-4-2);
 	top: var(--size-4-2);
 }
 
-.notera-panel-home-btn:hover, .notera-panel-transfer-btn:hover {
+.notera-panel-home-btn:hover, .notera-panel-action-btn:hover {
 	background: transparent;
 	opacity: 1;
 }
@@ -1801,14 +1806,14 @@ img.notera-search-result-thumb,
 }
 
 .is-mobile .notera-panel-home-btn,
-.is-mobile .notera-panel-transfer-btn {
+.is-mobile .notera-panel-action-btn {
 	position: static;
 	background: color-mix(in srgb, var(--menu-background) 25%, transparent);
     width: 100%;
 }
 
 .is-mobile .notera-panel-home-btn:hover,
-.is-mobile .notera-panel-transfer-btn:hover {
+.is-mobile .notera-panel-action-btn:hover {
 	background: var(--background-modifier-hover);
 }
 
@@ -2082,8 +2087,13 @@ img.notera-search-result-thumb,
     display: block;
 }
 
+.notera-modal .modal-button-container,
+.notera-restore-items { 
+	margin-top: 1em;
+}
+
 .is-mobile .notera-onb-scroll {
-    max-height: 50vh;
+    max-height: 45vh;
     overflow-y: auto;
 	padding: var(--size-4-3) 0;
 	--scrollbar-width: var(--size-4-3);
@@ -2096,11 +2106,36 @@ img.notera-search-result-thumb,
     margin-top: var(--size-4-10);
 }
 
-.notera-onb-nav { 
-	--icon-size: 32px; 
+.notera-onb-nav {
+	--icon-size: 32px;
 	--icon-color: var(--notera);
     --background-modifier-hover: transparent;
 	justify-content: space-between;
+}
+
+.notera-onb-dots {
+	display: flex;
+	gap: var(--size-4-2);
+	align-items: center;
+}
+
+.notera-onb-dots span {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: var(--text-muted);
+	opacity: 0.4;
+	cursor: pointer;
+	transition: var(--trans-normal);
+}
+
+.notera-onb-dots span:hover {
+	opacity: 0.6;
+}
+
+.notera-onb-dots span.is-active {
+	background-color: var(--notera);
+	opacity: 1;
 }
 
 .notera-onb-buttons { 
