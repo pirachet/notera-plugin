@@ -277,7 +277,7 @@ p.notera-analytics-count,
 }
 
 .is-phone .notera-license-control {
-    width: 50%;
+    width: 60%;
 }
 
 .notera-indicators .notera-indicator-icon {
@@ -852,7 +852,7 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 .notera-indicators,
 .notera-indicators .setting-item-name {
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
 	gap: var(--size-4-2);
 	font-size: var(--font-ui-small);
 }
@@ -1626,6 +1626,33 @@ img.notera-search-result-thumb,
 	margin-inline-end: 0;
 }
 
+.is-phone .modal .setting-item:not(.mod-toggle):has(.notera-setting-icon) {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr;
+}
+
+.is-phone .modal .setting-item:has(.notera-setting-icon) .setting-item-info {
+	grid-column: 2;
+}
+
+.is-phone .modal .setting-item:not(.mod-toggle):has(.notera-setting-icon) .setting-item-control {
+	grid-column: 1 / -1;
+}
+
+.is-mobile .notera-settings button.mod-warning {
+    background-color: var(--background-modifier-error);
+    color: var(--text-normal);
+}
+
+.is-phone .notera-modal.mod-settings .modal-content {
+    margin-top: 5em;
+}
+
+.is-phone .notera-modal .modal-button-container {
+    margin-top: 0;
+}
+
 .notera-restore-item {
 	cursor: pointer;
 }
@@ -2082,7 +2109,6 @@ img.notera-search-result-thumb,
 	}
 }
 
-.notera-modal,
 .notera-onb-conflicts {
     display: block;
 }
@@ -2102,8 +2128,8 @@ img.notera-search-result-thumb,
 	mask-image: linear-gradient(to bottom, transparent 0%, black 12px, black calc(100% - 20px), transparent 100%);
 }
 
-.is-mobile .notera-modal .notera-banner {
-    margin-top: var(--size-4-10);
+.is-mobile .notera-modal .notera-logo-wrapper {
+    margin: 0 0 var(--size-4-3) 0;
 }
 
 .notera-onb-nav {
@@ -2145,14 +2171,11 @@ img.notera-search-result-thumb,
 
 .is-mobile .notera-onb-nav {
     flex-direction: unset;
+	margin-top: 1em;
 }
 
 .notera-onb-buttons button { 
 	width: 100%;
-}
-
-.notera-modal p:not(.callout p) { 
-	padding-inline: var(--size-4-4);
 }
 
 .notera-onb-nav .clickable-icon:disabled { 
@@ -2179,4 +2202,19 @@ img.notera-search-result-thumb,
 
 .notera-has-banner .notera-status-inline {
 	top: calc(-1 * var(--notera-banner-padding) + var(--size-2-2));
+}
+
+.callout .notera-dismiss-btn { 
+	position: absolute;
+	background-color: transparent;
+    cursor: pointer;
+    font-size: 28px;
+    color: rgba(var(--callout-color), var(--callout-border-opacity));
+    right: var(--size-2-2);
+    top: var(--size-2-2);
+}
+
+.callout .notera-dismiss-btn:hover {
+    background-color: transparent;
+    color: rgba(var(--callout-color));
 }
