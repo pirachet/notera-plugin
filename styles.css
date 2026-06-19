@@ -624,6 +624,14 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
     50% { opacity: 0; }
 }
 
+.notera-modal .notera-banner {
+    font-size: 50px;
+}
+
+.notera-modal .notera-banner:hover {
+    transform: scaleX(1.2) translateX(34px);
+}
+
 .setting-item.mod-toggle.notera-banner-create-item { 
 	padding: 0 var(--size-4-3);
 	cursor: pointer;
@@ -2181,6 +2189,14 @@ img.notera-search-result-thumb,
 .notera-onb-nav .clickable-icon:disabled { 
 	opacity: 0;
     cursor: default; 
+}
+
+.notera-subtitle {
+	padding-inline: var(--size-4-3);
+}
+
+.notera-changelog-scroll {
+	padding-inline: var(--size-4-6);
 }
 
 .notera-status-inline {
