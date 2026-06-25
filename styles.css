@@ -286,23 +286,26 @@ p.notera-analytics-count,
 }
 
 .notera-license-indicator {
-	width: 12px;
-	height: 12px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
 	flex-shrink: 0;
 }
 
 .notera-license-indicator.is-valid {
 	background-color: var(--dark-green);
+	box-shadow: 0 0 6px 2px color-mix(in srgb, var(--dark-green) 70%, transparent);
 }
 
 .notera-license-indicator.is-invalid {
 	background-color: var(--red);
+	box-shadow: 0 0 6px 2px color-mix(in srgb, var(--red) 70%, transparent);
 }
 
 .notera-license-indicator.is-grace,
 .notera-license-indicator.is-warning {
 	background-color: var(--amber);
+	box-shadow: 0 0 6px 2px color-mix(in srgb, var(--amber) 70%, transparent);
 }
 
 .notera-license-indicator.is-unknown {
@@ -523,6 +526,11 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
     padding: var(--size-4-3);
 }
 
+.notera-manual-backup .setting-item-name {
+    color: inherit;
+	margin-inline: var(--size-2-2);
+}
+
 .notera-include-files {
 	display: flex;
 	align-items: center;
@@ -573,63 +581,86 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
     justify-content: center;
 }
 
-.notera-banner {
-    background: linear-gradient(180deg,
-                color-mix(in srgb, var(--notera) 100%, rgba(255, 255, 255, 1)) 0%,
-                color-mix(in srgb, var(--notera) 85%, rgba(0, 0, 0, 0)) 80%,
-                color-mix(in srgb, var(--notera) 65%, rgba(0, 0, 0, 0.10)) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 60px;
-    font-weight: 300;
-	font-family: var(--font-monospace);
-	margin: 0;
-    padding: var(--size-4-2) var(--size-4-8);
-    transition: font-weight 0.15s, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    will-change: transform;
+.notera-anim-logo {
+    height: 80px;
+    width: auto;
+	padding: var(--size-4-2) var(--size-4-8);
+    transform: scaleX(1.2);
 }
 
-.notera-banner:hover {
-    font-weight: 900;
-    transform: scaleX(1.2) translateX(42px);
+.notera-anim-logo .grad-top {
+    stop-color: var(--notera);
+}
+
+.notera-anim-logo .grad-mid {
+    stop-color: color-mix(in srgb, var(--notera) 85%, var(--background-primary));
+}
+
+.notera-anim-logo .grad-bot {
+    stop-color: color-mix(in srgb, var(--notera) 65%, var(--background-primary));
+
+}
+
+.notera-anim-logo .text-note {
+    fill: var(--background-primary);
+}
+
+.notera-anim-logo .left-side {
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.notera-anim-logo .bg-plate {
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: 484px center;
+}
+
+.notera-anim-logo .clip-plate {
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: 476px center;
+}
+
+.notera-anim-logo .text-ra {
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease;
+    transform-origin: 470px center;
+}
+
+.notera-anim-logo .caret {
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: 460px center;
+}
+
+.notera-anim-logo:hover .left-side {
+    transform: scaleX(1.2) translateX(30px);
     transition-delay: 0.3s;
 }
 
-.notera-banner-accent {
-    display: inline-block; 
-    transform-origin: left center; 
-    background: linear-gradient(180deg, 
-                color-mix(in srgb, var(--notera) 100%, rgba(255,255,255,1)) 0%, 
-                color-mix(in srgb, var(--notera) 85%, rgba(0,0,0,0)) 80%, 
-                color-mix(in srgb, var(--notera) 65%, rgba(0,0,0,0.10)) 100%);
-    font-weight: 700;
-    color: var(--background-primary);
-    border-radius: var(--radius-l);
-    padding: 0 var(--size-2-2);
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.2s ease, border-radius 0.2s ease;
-    will-change: transform, color;
-}
-
-.notera-banner:hover .notera-banner-accent {
-    color: transparent;
-    transform: scaleX(0.04);
-	border-radius: 0;
-    animation: caret-blink 1s step-end infinite;
+.notera-anim-logo:hover .bg-plate,
+.notera-anim-logo:hover .clip-plate {
+    transform: scaleX(0);
     transition-delay: 0.3s;
-    animation-delay: 0.2s;
 }
 
-@keyframes caret-blink {
+.notera-anim-logo:hover .text-ra {
+    transform: scaleX(0) translateX(120px);
+    opacity: 0;
+    transition-delay: 0.3s;
+}
+
+.notera-anim-logo:hover .caret {
+    transform: translateX(150px);
+    animation: svgCaretBlink 1s step-end infinite;
+    transition-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+@keyframes svgCaretBlink {
+    0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
-.notera-modal .notera-banner {
-    font-size: 50px;
-}
-
-.notera-modal .notera-banner:hover {
-    transform: scaleX(1.2) translateX(34px);
+.notera-modal .notera-anim-logo {
+    height: 70px;
 }
 
 .setting-item.mod-toggle.notera-banner-create-item { 
@@ -821,7 +852,7 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 	justify-content: center;
     gap: var(--size-2-3);
     padding: var(--size-2-2);
-    color: var(--notera);
+    color: var(--text-error);
 }
 
 .notera-modal-status:empty {
@@ -1019,6 +1050,10 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 
 .notera-folder-item input[type="checkbox"] {
 	margin: 0;
+}
+
+.notera-folder-item-disabled {
+	color: var(--text-faint);
 }
 
 .notera-filter-icon {
@@ -1365,7 +1400,7 @@ img.notera-search-result-thumb,
 }
 
 .notera-search-result-ext {
-	font-size: calc(var(--font-ui-smaller) - 1px);
+	font-size: var(--font-ui-smaller);
 	color: var(--text-faint);
 }
 
@@ -1379,10 +1414,28 @@ img.notera-search-result-thumb,
 	flex-shrink: 0;
 }
 
-.notera-search-match-icon,
-.notera-search-result-folder-icon {
+.notera-search-result-folder-icon,
+.notera-xs-icon,
+.notera-s-icon,
+.notera-m-icon {
 	display: flex;
-	--icon-size: var(--icon-xs);
+	align-items: center;
+}
+
+.notera-xs-icon,
+.notera-search-result-folder-icon {
+	width: var(--icon-xs);
+	height: var(--icon-xs);
+}
+
+.notera-s-icon { 
+	width: var(--icon-s);
+	height: var(--icon-s);
+}
+
+.notera-m-icon {
+	width: var(--icon-m);
+	height: var(--icon-m);
 }
 
 .notera-search-result-path {
@@ -1394,6 +1447,10 @@ img.notera-search-result-thumb,
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.is-selected .notera-search-result-path {
+	color: var(--notera-folder-color, var(--text-faint));
 }
 
 .prompt-results .notera-search-result-path {
@@ -1522,9 +1579,7 @@ img.notera-search-result-thumb,
 }
 
 .notera-icon-picker-list {
-	max-height: 200px;
-	overflow-y: auto;
-	margin-bottom: var(--size-4-2);
+	max-height: 25vh;
 }
 
 .notera-icon-picker-item {
@@ -2017,7 +2072,7 @@ img.notera-search-result-thumb,
 	object-position: center var(--notera-banner-y);
 	pointer-events: none;
 	border-radius: 0;
-	filter: brightness(calc(1 - var(--notera-banner-darken))) blur(var(--notera-banner-blur));
+	filter: opacity(calc(1 - var(--notera-banner-opacity))) blur(var(--notera-banner-blur));
 	mask-image: linear-gradient(to bottom, black calc(100% - var(--notera-banner-fade)), transparent);
 	-webkit-mask-image: linear-gradient(to bottom, black calc(100% - var(--notera-banner-fade)), transparent);
 }
