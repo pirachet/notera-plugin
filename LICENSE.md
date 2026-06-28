@@ -31,4 +31,4 @@ You are strictly **prohibited** from:
 The author reserves the right to modify the terms of this License, as well as pricing and feature availability in future versions of the Software.
 
 ---
-*Copyright (c) 2026 TrendHD. All rights reserved.*
+*Copyright (c) 2026 pirachet. All rights reserved.*
