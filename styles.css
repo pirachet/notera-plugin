@@ -29,13 +29,21 @@ body.notera-colored-folders .nav-folder:has(.nav-folder-title[data-path^="07"]) 
 body.notera-colored-folders .nav-folder:has(.nav-folder-title[data-path^="08"]) { --folder-color: var(--amber); }
 body.notera-colored-folders .nav-folder:has(.nav-folder-title[data-path^="99"]) { --folder-color: var(--cool-gray); }
 
-body.notera-colored-folders .nav-folder:has(.nav-folder-title[data-path^="00"]) .nav-file-title,
 body.notera-colored-folders .nav-folder-title {
 	color: var(--folder-color);
 	--nav-item-color-hover: color-mix(in srgb, var(--folder-color) var(--fg-contrast-amount), var(--contrast-color));
 	--nav-item-background-hover: color-mix(in srgb, var(--folder-color) var(--bg-contrast-amount), transparent);
 	--background-modifier-border-focus: color-mix(in srgb, var(--folder-color) 40%, transparent);
 	--nav-collapse-icon-color: color-mix(in srgb, var(--folder-color) 60%, transparent);
+}
+
+
+body.notera-colored-folders .nav-folder:has(.nav-folder-title[data-path^="00"]) .nav-file-title { 
+	color: var(--folder-color);
+}
+
+body.notera-colored-folders .nav-folder:has(.nav-folder-title[data-path^="00"]) .nav-file-title:hover {
+    color: var(--nav-item-color-hover);
 }
 
 body.notera-colored-folders .nav-folder-title:hover {
@@ -276,8 +284,8 @@ p.notera-analytics-count,
 	font-size: var(--font-ui-smaller);
 }
 
-.is-phone .notera-license-control {
-    width: 60%;
+.is-phone .notera-license > .setting-item-info {
+    display: none;
 }
 
 .notera-indicators .notera-indicator-icon {
@@ -524,11 +532,12 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 
 .notera-manual-backup .setting-item {
     padding: var(--size-4-3);
+	gap: var(--size-2-2);
 }
 
 .notera-manual-backup .setting-item-name {
     color: inherit;
-	margin-inline: var(--size-2-2);
+	white-space: pre;
 }
 
 .notera-include-files {
@@ -575,7 +584,6 @@ body.notera-img-hover :is(.markdown-source-view, .markdown-preview-view, .markdo
 
 .notera-logo-wrapper {
 	width: 100%;
-    overflow-x: hidden; 
     margin: var(--size-4-5) 0;
     display: flex;
     justify-content: center;
@@ -2181,7 +2189,7 @@ img.notera-search-result-thumb,
 	margin-top: 1em;
 }
 
-.is-mobile .notera-onb-scroll {
+.notera-onb-scroll {
     max-height: 45vh;
     overflow-y: auto;
 	padding: var(--size-4-3) 0;
@@ -2246,12 +2254,26 @@ img.notera-search-result-thumb,
     cursor: default; 
 }
 
+.notera-onb-fonts {
+    --icon-size: var(--icon-xl);
+    color: var(--text-faint);
+    cursor: pointer;
+}
+
+.notera-onb-fonts:hover {
+    color: var(--text-muted);
+}
+
 .notera-subtitle {
 	padding-inline: var(--size-4-3);
 }
 
 .notera-changelog-scroll {
 	padding-inline: var(--size-4-6);
+}
+
+.is-mobile .notera-changelog-scroll.notera-list {
+    max-height: 45vh;
 }
 
 .notera-status-inline {
