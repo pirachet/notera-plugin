@@ -1,14 +1,6 @@
 {
   "sets": [
     {
-      "id": "vanilla",
-      "name": "Vanilla Default",
-      "version": "1.1",
-      "author": "Notera",
-      "description": "Minimal dark banners",
-      "bannerCount": 8
-    },
-    {
       "id": "abstractions",
       "name": "abstractions",
       "version": "1.3",
