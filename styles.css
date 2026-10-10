@@ -27,7 +27,6 @@
 
 	--shadow: #0b0c2c;
 	--highlight: #ffffff;
-	--nav-item-weight-hover: bold;
 	--notera-inset-shadow: inset 0 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.09), 0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 1px 1.5px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 transparent;
 	--transition-normal: 0.15s;
 	--background-modifier-error-hover: color-mix(in srgb, var(--color-red) 80%, black);
@@ -124,7 +123,7 @@ body.notera-colored-folders .nav-folder-title {
 	align-items: baseline;
 }
 
-.vertical-tab-content .setting-group ~ :is(h1, h2, h3, h4, .setting-item-heading) {
+.vertical-tab-content .setting-group ~ :is(h1, h2, h3, h4, .setting-item-heading, .notera-icon-header) {
     margin-top: var(--size-4-6);
 }
 
@@ -638,11 +637,18 @@ body.notera-img-hover :is(
 	to { opacity: 1; }
 }
 
-.notera-logo-wrapper {
+.notera-logo-wrapper,
+.notera-icon-wrapper {
 	width: 100%;
     margin: var(--size-4-5) 0;
     display: flex;
     justify-content: center;
+}
+
+.notera-icon-wrapper {
+    margin-block: var(--size-4-1) var(--size-4-5);
+	color: var(--background-secondary-alt);
+	--icon-size: 70px;
 }
 
 .notera-anim-logo {
@@ -843,7 +849,7 @@ body.notera-img-hover :is(
 }
 
 .notera-list .clickable-icon.mod-warning {
-    color: var(--text-normal);
+    color: var(--text-on-accent);
 	--icon-size: unset;
 }
 
@@ -901,10 +907,32 @@ body.notera-img-hover :is(
 	gap: var(--size-4-2);
 }
 
-.notera-notice-icon {
+.notera-notice-icon,
+.notera-modal-icon {
 	flex-shrink: 0;
 	width: 16px;
 	height: 16px;
+}
+
+.notera-modal-icon {
+	color: var(--text-faint);
+}
+
+.notera-modal-icon svg {
+	--icon-size: 18px;
+}
+
+.notera-modal-icon svg:not(.svg-icon) {
+	fill: currentColor;
+}
+
+.notera-modal > .modal-header {
+	display: flex;
+	gap: var(--size-4-2);
+}
+
+.notera-modal > .modal-header > .modal-title {
+	flex: 1;
 }
 
 .notera-download-notice .svg-loader {
@@ -1554,18 +1582,15 @@ img.notera-search-result-thumb,
 
 .notera-xs-icon,
 .notera-search-result-folder-icon {
-	width: var(--icon-xs);
-	height: var(--icon-xs);
+	--icon-size: var(--icon-xs);
 }
 
 .notera-s-icon { 
-	width: var(--icon-s);
-	height: var(--icon-s);
+	--icon-size: var(--icon-s);
 }
 
 .notera-m-icon {
-	width: var(--icon-m);
-	height: var(--icon-m);
+	--icon-size: var(--icon-m);
 }
 
 .notera-search-result-path {
@@ -1719,7 +1744,7 @@ img.notera-search-result-thumb,
 	align-items: center;
 	justify-content: space-between;
 	padding: var(--size-2-3) var(--size-4-2);
-	border-radius: var(--radius-s);
+	border-radius: var(--radius-m);
 	cursor: pointer;
 }
 
@@ -1778,7 +1803,6 @@ img.notera-search-result-thumb,
 .notera-lock-icon {
 	display: flex;
     max-width: calc(var(--icon-l) + 4px);
-	will-change: transform;
     transition: max-width var(--transition-normal) var(--anim-motion-smooth);
 }
 
@@ -1905,7 +1929,7 @@ img.notera-search-result-thumb,
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: color-mix(in srgb, var(--background-primary) 80%, transparent);
+	background: color-mix(in srgb, var(--settings-background) 80%, transparent);
 	backdrop-filter: blur(2px);
 	-webkit-backdrop-filter: blur(2px);
     transition: 0.5s cubic-bezier(0.4, 0, 1, 1);
@@ -2008,9 +2032,31 @@ img.notera-search-result-thumb,
 	padding-top: calc(var(--notera-banner-padding) + var(--panel-h, 0px));
 }
 
-.notera-note-panel .cm-iconize-icon svg {
+.notera-note-panel .notera-icon svg {
     stroke-width: 2.5;
     color: var(--text-muted);
+}
+
+.notera-icon {
+    display: inline-flex;
+    transform: translateY(13%);
+    color: currentColor;
+}
+
+.notera-icon-suggest {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+}
+
+.notera-icon-nav {
+    display: inline-flex;
+    margin-right: var(--size-4-1);
+}
+
+.nav-folder-title, 
+.nav-file-title {
+    align-items: center;
 }
 
 .notera-panel-home-btn, 
@@ -2359,7 +2405,8 @@ img.notera-search-result-thumb,
 	align-items: center;
 }
 
-.is-mobile .notera-modal .notera-logo-wrapper {
+.is-mobile .notera-modal .notera-logo-wrapper,
+.is-mobile .notera-modal .notera-icon-wrapper {
     margin: 0 0 var(--size-4-3) 0;
 }
 
@@ -2491,6 +2538,7 @@ img.notera-search-result-thumb,
 
 /* New style */
 body.notera-workspace-layout { 
+	--setting-items-background: var(--background-secondary);
 	--image-radius: var(--radius-l);
 	--modal-border-color: var(--background-modifier-border);
 	--search-result-background: transparent;
@@ -2501,6 +2549,8 @@ body.notera-workspace-layout {
 	--mobile-sidebar-width: 90vw;
 	--input-shadow: none;
     --input-shadow-hover: none;
+	
+	--color-red: var(--red);
 }
 
 body.is-mobile.notera-workspace-layout {
@@ -2548,6 +2598,10 @@ body.notera-workspace-layout:not(.is-mobile) .workspace-tabs .workspace-leaf {
 	border-radius: var(--workspace-leaf-radius);
 }
 
+body.notera-workspace-layout .view-header-title-container {
+	justify-content: center;
+}
+
 body.notera-workspace-layout:not(.is-mobile) .view-header-title-container {
     opacity: 0;
 	transition: opacity var(--transition-normal) var(--anim-motion-smooth) 0.1s;
@@ -2568,13 +2622,16 @@ body.notera-workspace-layout:not(.is-mobile) .mod-root .workspace-tabs ~ .worksp
     margin-left: 0;
 }
 
-body.notera-workspace-layout:not(.is-mobile) .workspace-split .workspace-leaf-resize-handle,
-body.notera-workspace-layout:not(.is-mobile) .workspace-ribbon.mod-left::before {
-	border: none;
-	border-radius: var(--radius-s);
+body.notera-workspace-layout:not(.is-mobile) {
+	.workspace-split .workspace-leaf-resize-handle,
+	.workspace-ribbon.mod-primary,
+	.workspace-ribbon.mod-primary::before {
+		border: none;
+		border-radius: var(--radius-s);
+	}
 }
 
-body.notera-workspace-layout:not(.is-mobile) .workspace-ribbon.mod-left:is(
+body.notera-workspace-layout:not(.is-mobile) .workspace-ribbon.mod-primary:is(
   .side-dock-ribbon,
   .is-collapsed
 ) {
@@ -2712,7 +2769,6 @@ body.notera-workspace-layout:not(.is-mobile):not(.is-popout-modal) :is(
 }
 
 body.notera-workspace-layout:not(.is-mobile) .modal.mod-sidebar-layout {
-	--setting-items-background: var(--background-secondary);
     --settings-background: var(--background-secondary);
 }
 
@@ -3239,6 +3295,7 @@ body.notera-workspace-layout #calendar-container .year {
 	flex: 1;
 	display: flex;
 	align-items: center;
+	border-radius: var(--radius-m);
 	justify-content: center;
 	min-width: var(--size-4-8);
 	padding: var(--size-2-2);

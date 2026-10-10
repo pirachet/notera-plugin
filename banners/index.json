@@ -11,10 +11,10 @@
     {
       "id": "vanilla_notera",
       "name": "Vanilla Notera",
-      "version": "1.9",
+      "version": "2.0",
       "author": "Notera",
       "description": "Classic banners assembled with love",
-      "bannerCount": 8
+      "bannerCount": 15
     }
   ]
 }
