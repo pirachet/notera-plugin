@@ -259,6 +259,7 @@ span.notera-subtab-icon {
 	border-radius: var(--radius-l);
 	border: none;
 	align-items: center;
+	max-width: unset;
 }
 
 .notera-item-progress {
@@ -924,6 +925,10 @@ body.notera-img-hover :is(
 
 .notera-modal-icon svg:not(.svg-icon) {
 	fill: currentColor;
+}
+
+.is-mobile .notera-modal-icon { 
+	display: none;
 }
 
 .notera-modal > .modal-header {
@@ -2406,9 +2411,12 @@ img.notera-search-result-thumb,
 	align-items: center;
 }
 
-.is-mobile .notera-modal .notera-logo-wrapper,
-.is-mobile .notera-modal .notera-icon-wrapper {
-    margin: 0 0 var(--size-4-3) 0;
+.is-mobile .notera-modal .notera-logo-wrapper {
+    margin-block: 0 var(--size-4-3);
+}
+
+.is-mobile .notera-modal .notera-icon-wrapper { 
+	margin-block: 0 var(--size-4-2);
 }
 
 .notera-onb-nav {
@@ -2508,7 +2516,7 @@ img.notera-search-result-thumb,
 
 .notera-changelog-scroll {
 	padding-inline: var(--size-4-6);
-	background-color: var(--background-secondary);
+	background-color: var(--background-modifier-form-field);
 }
 
 .is-mobile .notera-changelog-scroll.notera-list {
@@ -2545,7 +2553,6 @@ body.notera-workspace-layout {
 	--search-result-background: transparent;
 	--radius-s: var(--size-2-3);
 	--checkbox-radius: var(--radius-xl);
-	--modal-radius: var(--radius-xl);
 	--notera-layout-margin: var(--size-4-2);
 	--mobile-sidebar-width: 90vw;
 	--input-shadow: none;
@@ -2566,6 +2573,7 @@ body.notera-workspace-layout:not(.is-mobile) {
 	--button-radius: var(--radius-m);
 	--workspace-leaf-radius: var(--radius-xl);
 	--notera-layout-margin: var(--size-4-4);
+	--modal-radius: var(--radius-xl);
 }
 
 body.notera-workspace-layout:not(.is-mobile).is-popout-modal.is-frameless .titlebar {
