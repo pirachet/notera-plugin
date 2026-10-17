@@ -653,7 +653,7 @@ body.notera-img-hover :is(
 }
 
 .notera-icon-wrapper {
-    margin-block: var(--size-4-1) var(--size-4-5);
+    margin-block: var(--size-4-1) var(--size-4-6);
 	color: var(--background-secondary-alt);
 	--icon-size: 70px;
 }
