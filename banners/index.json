@@ -1,17 +1,9 @@
 {
   "sets": [
     {
-      "id": "abstractions",
-      "name": "abstractions",
-      "version": "1.3",
-      "author": "Notera",
-      "description": "Abstractions test banners",
-      "bannerCount": 8
-    },
-    {
       "id": "vanilla_notera",
       "name": "Vanilla Notera",
-      "version": "2.0",
+      "version": "1.0",
       "author": "Notera",
       "description": "Classic banners assembled with love",
       "bannerCount": 15
