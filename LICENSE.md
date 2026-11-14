@@ -31,5 +31,5 @@ You are strictly **prohibited** from:
 The author reserves the right to modify the terms of this License, as well as pricing and feature availability in future versions of the Software.
 
 ---
-Copyright (c) 2026 pirachet
-For website [Terms of Service](http://notera.md/terms), [Privacy Policy](http://notera.md/privacy), and [Refund Policy](http://notera.md/refund), please visit [notera.md](http://notera.md)
+*Copyright (c) 2026 Notera.*
+*For website [Terms of Service](http://notera.md/terms), [Privacy Policy](http://notera.md/privacy), and [Refund Policy](http://notera.md/refund), please visit [notera.md](http://notera.md)*
