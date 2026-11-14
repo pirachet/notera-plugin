@@ -13,8 +13,8 @@ By installing, copying, or otherwise using the Software, you agree to the terms 
 
 ### 2. Feature Tiers and Monetization
 The Software consists of two functional tiers:
-1. **Core Features (Free):** Provided "as is" and available to all users without limitations.
-2. **Premium Features (Paid):** Includes advanced modules (e.g., semantic associative memory, advanced analytics). Access to these features requires a valid and active **License Key**.
+* Free Features: Provided "as is" and available to all users without a license key.
+* Paid Features: Includes advanced modules (such as local semantic associative search, automation, and extended customization). Access to these features requires a valid and active License Key.
 
 ### 3. Usage Restrictions
 You are strictly **prohibited** from:
@@ -31,4 +31,5 @@ You are strictly **prohibited** from:
 The author reserves the right to modify the terms of this License, as well as pricing and feature availability in future versions of the Software.
 
 ---
-*Copyright (c) 2026 pirachet. All rights reserved.*
+Copyright (c) 2026 pirachet
+For website [Terms of Service](http://notera.md/terms), [Privacy Policy](http://notera.md/privacy), and [Refund Policy](http://notera.md/refund), please visit [notera.md](http://notera.md)
